@@ -11,13 +11,18 @@ private_key = firebase_key.private_key
 st.write(f"Project ID: {project_id}")
 st.write(f"Private Key: {private_key}")
 
-cred_json = json.dumps(cred_dict)
-
-# Inisialisasi Firebase
-
-cred = credentials.Certificate(json.loads(cred_json))
-st.write(cred)
+# Membuat credential Firebase dari dictionary yang diperoleh
+cred = credentials.Certificate({
+    "type": firebase_key.type,
+    "project_id": firebase_key.project_id,
+    "private_key_id": firebase_key.private_key_id,
+    "private_key": firebase_key.private_key,
+    "client_email": firebase_key.client_email,
+    "client_id": firebase_key.client_id,
+})
 firebase_admin.initialize_app(cred)
+
+st.write("Firebase initialized successfully!")
 
 # Koneksi ke Firestore
 db = firestore.client()
