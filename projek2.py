@@ -10,7 +10,8 @@ private_key = firebase_key.private_key
 # Mencetak nilai untuk memastikan data dapat diakses
 st.write(f"Project ID: {project_id}")
 st.write(f"Private Key: {private_key}")
-
+coba = dict(firebase_key)
+st.write(coba)
 # Membuat credential Firebase dari dictionary yang diperoleh
 cred = credentials.Certificate({
     "type": firebase_key.type,
