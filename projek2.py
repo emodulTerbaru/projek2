@@ -3,8 +3,14 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 import json
 
-cred_dict = st.secrets["firebase_key"]
-st.write(type(cred_dict))
+firebase_key  = st.secrets["firebase_key"]
+project_id = firebase_key.project_id
+private_key = firebase_key.private_key
+
+# Mencetak nilai untuk memastikan data dapat diakses
+st.write(f"Project ID: {project_id}")
+st.write(f"Private Key: {private_key}")
+
 cred_json = json.dumps(cred_dict)
 
 # Inisialisasi Firebase
