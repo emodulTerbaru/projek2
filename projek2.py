@@ -3,11 +3,10 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 import json
 
-with open("belajar1\\percobaan-pertama-ae4ff-firebase-adminsdk-rgoyc-bb4b0284ac.json",'r') as json_file:
-    coba = json.load(json_file)
+cred_dict = json.loads(st.secrets["firebase_key"])
 # Inisialisasi Firebase
 if not firebase_admin._apps:
-    cred = credentials.Certificate(coba)
+    cred = credentials.Certificate(cred_dict)
     firebase_admin.initialize_app(cred)
 
 # Koneksi ke Firestore
