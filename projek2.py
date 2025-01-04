@@ -20,7 +20,7 @@ cred_dict = {
 # Inisialisasi Firebase
 st.write(cred_dict)
 st.write(type(cred_dict))
-cred = credentials.Certificate(json.loads(cred_dict))
+cred = credentials.Certificate(json.dumps(cred_dict))
 st.write(cred)
 firebase_admin.initialize_app(cred)
 
