@@ -6,11 +6,9 @@ import json
 cred_dict = st.secrets["firebase_key"]
 # Inisialisasi Firebase
 st.write(cred_dict)
-st.write(type(cred_dict))
-st.write(json.dumps(cred_dict))
-if not firebase_admin._apps:
-    cred = credentials.Certificate(cred_dict)
-    firebase_admin.initialize_app(cred)
+
+cred = credentials.Certificate(cred_dict)
+firebase_admin.initialize_app(cred)
 
 # Koneksi ke Firestore
 db = firestore.client()
