@@ -4,6 +4,7 @@ from firebase_admin import credentials, firestore
 import json
 
 cred_dict = st.secrets["firebase_key"]
+st.write(type(cred_dict))
 cred_json = json.dumps(cred_dict)
 
 # Inisialisasi Firebase
