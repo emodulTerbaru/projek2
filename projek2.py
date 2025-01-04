@@ -3,7 +3,7 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 import json
 
-cred_dict = json.loads(st.secrets["firebase_key"])
+cred_dict = st.secrets["firebase_key"]
 # Inisialisasi Firebase
 if not firebase_admin._apps:
     cred = credentials.Certificate(cred_dict)
