@@ -13,7 +13,8 @@ st.write(f"Private Key: {private_key}")
 coba = dict(firebase_key)
 st.write(coba)
 # Membuat credential Firebase dari dictionary yang diperoleh
-cred = credentials.Certificate(coba)
+cred_json = json.dumps(coba)
+cred = credentials.Certificate(json.loads(cred_json))
 firebase_admin.initialize_app(cred)
 
 st.write("Firebase initialized successfully!")
