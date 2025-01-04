@@ -15,6 +15,7 @@ st.write(coba)
 # Membuat credential Firebase dari dictionary yang diperoleh
 cred_json = json.dumps(coba)
 cred = credentials.Certificate(json.loads(cred_json))
+st.write(cred)
 firebase_admin.initialize_app(cred)
 
 st.write("Firebase initialized successfully!")
